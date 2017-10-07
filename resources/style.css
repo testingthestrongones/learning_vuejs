@@ -1,0 +1,250 @@
+html, body {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.topbar_row {
+    background-color: #083D8C;
+}
+
+.topbar_nav a {
+    color: white;
+    font-size: .25em;
+}
+
+.main-nav_row {
+    padding: 1.5em 2em;
+    align-items: center;
+}
+
+.main-nav a {
+    color: #083D8C;
+    font-weight: 500;
+}
+
+.main-nav .find-btn {
+    color: #216DDF;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    border: 3px solid #216DDF;
+    border-radius: 10px;
+}
+
+.main-nav .find-btn a {
+    color: #216DDF;
+}
+
+.jumbotron-fluid {
+    background-image: url('/images/hero_img.jpg');
+    background-position: center center;
+    background-size: cover;
+   
+    position: relative;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 7em 0;
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    box-shadow: inset 1px 4px 15px -6px black;
+}
+
+.jumbotron-fluid:after {
+    content: "";
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.jumbotron-fluid h1 {
+    font-weight: 300;
+    letter-spacing: 1.1px;
+    margin-bottom: 1rem;
+}
+
+.jumbotron-fluid .sub-head {
+    color: #02C7C6;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.jumbotron-fluid h3 {
+    color: #02C7C6;
+    text-transform: uppercase;
+}
+
+.jumbotron-fluid hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: 2px solid rgba(255,255,255,1);
+    max-width: 133px;
+}
+
+.steps {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+.steps .col-sm-4 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-number {
+    text-align: center;
+    border: 5px solid #083D8C;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 91px;
+    min-width: 91px;
+}
+
+.step-number span {
+    color: #02C7C6;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.step-description {
+    float: right;
+    width: 65%;
+}
+
+.step-description h5 {
+    color: #083D8C;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.step-description p {
+    color: #666;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.filter_col {
+    background-color: #f6f6f6;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 10px;
+}
+
+.filter_wrapper {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.dealer-num {
+    color: #216DDF;
+    font-weight: 600;
+    border-right: 1px solid #ccc;
+    padding-right: 15px;
+}
+
+.filter-title {
+    font-weight: 600;
+    padding-right: 15px;
+}
+
+.filter_wrapper label {
+    padding: 0 15px 0 5px;
+    margin: 0;
+}
+
+.filter_wrapper a[title="Commercial"] {
+    background-color: #e5e5e5;
+    padding: 2px 6px;
+    font-size: 10px;
+}
+
+.cards_row {
+    justify-content: space-between;
+    align-content: space-between;
+    max-width: 996px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.dealer-card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    flex-basis: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f6f6f6;
+}
+
+.card-top {
+    padding: 20px;
+    background-color: white;
+}
+
+.card-title {
+    min-height: 48px;
+}
+
+.card-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card-bottom p {
+    flex-basis: 50%;
+    font-size: 10px;
+}
+
+.footer_row {
+    background-color: #083D8C;
+    color: white;
+    font-size: 10px;
+}
+
+.footer_row .connect_wrapper {
+    padding: 2em 0;
+}
+
+.footer_row .footer-copy {
+    padding: 0.5em 0;
+    background-color: #216DDF;
+}
+
+.footer_row img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.footer_row i {
+    font-family: FontAwesome;
+    font-size: 14px;
+    color: #A0B5D5;
+    margin: 0 15px;
+}
+
+.footer_row a {
+    color: white;
+}
+
+.connect_wrapper span {
+    text-transform: uppercase;
+}
+
+.footer-copy span {
+    padding: 0 10px;
+}
+
+.footer-copy .bordered {
+    border-right: 1px solid white;
+}
