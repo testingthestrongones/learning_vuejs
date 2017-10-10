@@ -12,16 +12,175 @@
   
   <body>
     
-    <script src="https://unpkg.com/vue"></script>
+    <script src="resources/vue.js"></script>
   	
     <div class="container-fluid" id="app">
     	
+    	<div class="row topbar_row">
+    		<div class="col-sm-12 align-self-end topbar_wrapper">
+    			<ul class="topbar_nav nav justify-content-end">
+    				<li class="list-item"><a class="nav-link" href="#">Dealers and Distributors</a></li>
+    				<li class="list-item"><a class="nav-link" href="#">Commercial Service</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    	
+    	<div class="row main-nav_row">
+    		<div class="col-sm-4">
+    			<img class="img-responsive" src="images/pp_logo.png">
+    		</div>
+    		<div class="col-sm-8 align-self-end main-nav_wrapper">
+    			<ul class="main-nav nav nav-pills justify-content-end">
+    				<li class="list-item"><a class="nav-link" href="#">Pools & Spa</a></li>
+    				<li class="list-item"><a class="nav-link" href="#">Supplies</a></li>
+    				<li class="list-item"><a class="nav-link" href="#">Resources</a></li>
+    				<li class="list-item"><a class="nav-link" href="#">Services</a></li>
+    				<li class="list-item find-btn"><a class="nav-link" href="#"><img src="images/locationpin.png">Find A Pool Pro</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    	
+    	<div class="jumbotron-fluid">
+    		<div class="container">
+    			<h1 class="">Is your pool ready for Summer?</h1>
+    			<p class="sub-head">A pool pro is ready to help!</p>
+    			<hr>
+    			<p class="">Choose a pro that's close to home from the list below.</p>
+    		</div>
+    	</div>
+    	
+    	<div class="row steps">
+    	  <div class="col-sm-4">
+    	    <div class="step-number">
+    	      <span>1</span>
+    	    </div>
+    	    <div class="step-description">
+    	      <h5>Choose a pro</h5>
+    	      <p>Make sure your ZIP code is correct, then choose a pro rom the list below.</p>
+    	    </div>
+    	  </div>
+    	  <div class="col-sm-4">
+    	    <div class="step-number">
+    	      <span>2</span>
+    	    </div>
+    	    <div class="step-description">
+    	      <h5>Contact a pro</h5>
+    	      <p>Email a pro to make an appointment for pool & spa services or installation.</p>
+    	    </div>
+    	  </div>
+    	  <div class="col-sm-4">
+    	    <div class="step-number">
+    	      <span>3</span>
+    	    </div>
+    	    <div class="step-description">
+    	      <h5>A pro visits</h5>
+    	      <p>A pro will visit your home and assess your pool & spa needs.</p>
+    	    </div>
+    	  </div>
+    	</div>
+    	
+    	<div class="row">
+    	  <img class="img-responsive" src="images/bubbles.png" style="max-width: 100%;">
+    	</div>
+    	
+    	<div class="row filter_row justify-content-center">
+    	  <div class="col-sm-10 offset-sm-1 filter_col">
+    	    <span class="dealer-num">7 dealers</span>
+    	    <div class="filter_wrapper">
+    	      <span class="filter-title">Filter Results</span>
+    	      <input class="filter" type="checkbox" value="service" id="service" checked="checked"><label for="service">Service</label>
+    	      <input class="filter" type="checkbox" value="installation" id="installation" checked="checked"><label for="installation">Installation</label>
+    	      <input class="filter" type="checkbox" value="residential" id="residential" checked="checked"><label for="residential">Residential</label>
+    	      <input class="filter" type="checkbox" value="commercial" id="commercial"><label for="commericial">Commercial</label>
+    	      <a href="#" data-toggle="tooltip" data-placement="top" title="Commercial">?</a>
+    	    </div>
+    	  </div>
+    	</div>
+    	
     	<div class="row cards_row" id="cards_row">
     	  <ul id="v-for-object" class="cards_list">
-    	    <li v-for="value in data">
-    	      {{ value }}
+    	    <li v-for="dealer in dealers" class="card_item" :key="dealer.id">
+    	      <div class="dealer-card">
+              <div class="card-top">
+                <div class="card-title">
+                  {{ dealer.data.name }}
+                </div>
+                <hr>
+                {{ dealer.data.phone1 }}
+                <p>Can't talk now? Click below to send us an email.</p>
+                <a href="#" class="contact-btn" data-toggle="modal" data-target="myModal">Contact this Pro</a>
+                <p>Business Hours</p>
+                <span>Weekdays</span>
+                <p>
+                  {{ dealer.data.weekHours.mon }}
+                </p>
+                <span>Saturdays</span>
+                <p v-if="dealer.data.weekHours.sat === ''">
+                  CLOSED
+                </p>
+                <p v-else>
+                  {{ dealer.data.weekHours.sat }}
+                </p>
+                <span>Sundays</span>
+                <p v-if="dealer.data.weekHours.sun === ''">
+                  CLOSED
+                </p>
+                <p v-else>
+                  {{ dealer.data.weekHours.sun }}
+                </p>
+              </div>
+              <div class="card-bottom">
+                <ul class="certifications_list">
+                  <li v-for="certification in dealer.data.certifications">
+                    {{ certification }}
+                  </li>
+                </ul>
+              </div>
+            </div><!-- end of card -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{ dealer.data.name }}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <label>First and last name</label>
+                      <input type="text">
+                      <label>Phone number</label>
+                      <input type="number">
+                      <label>Email address</label>
+                      <input type="text">
+                      <label>Comments of questions</label>
+                      <input type="text">
+                      <label>Do you currently own a pool or spa?</label>
+                      <input type="radio" name="owned" value="yes" checked>
+                      <input type="radio" name="owned" value="no" checked>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
     	    </li>
     	  </ul>
+    	</div>
+    	
+    	<div class="footer_row row justify-content-center text-center">
+    	  
+    	  <div class="col-sm-12 connect_wrapper">
+    	      <img src="images/pp_logo.png" />
+    	      <span>Connect With Us <i class="fa fa-twitter" aria-hidden="true"></i><i class="fa fa-facebook" aria-hidden="true"></i><i class="fa fa-youtube" aria-hidden="true"></i></span>
+    	  </div>
+    	  
+  	    <div class="col-sm-12 footer-copy">
+  	      <span class="bordered">&copy; 2017 Pool Pros</span><span class="bordered"><a href="#">Privacy Policy</a></span><span><a href="#">Terms and Conditions</a></span>
+  	    </div>
+
     	</div>
     	
     </div><!-- End of container -->
